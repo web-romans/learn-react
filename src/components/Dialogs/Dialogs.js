@@ -1,58 +1,24 @@
-import { NavLink } from 'react-router-dom';
+
+import Dialog from './Dialog/Dialog';
+import Message from './Message/Message';
 import './Dialogs.scss'
 
 function Dialogs(props) {
     return (
         <div className='dialogs'>
             <div className="dialogs__items">
-                <NavLink to="/dialogs/1" className="dialogs__item dialog">
-                    Роман
-                </NavLink>
-                <NavLink to="/dialogs/2" className="dialogs__item dialog">
-                    Татьяна
-                </NavLink>
-                <NavLink to="/dialogs/3" className="dialogs__item dialog">
-                    Анна
-                </NavLink>
-                <NavLink to="/dialogs/4" className="dialogs__item dialog">
-                    Иван
-                </NavLink>
-
+                <Dialog id="1" name="Роман" />
+                <Dialog id="2" name="Татьяна" />
+                <Dialog id="3" name="Анна" />
+                <Dialog id="4" name="Иван" />
             </div>
 
             <div className="dialogs__messages messages">
 
                 <div className="messages__items">
-                    <div className="messages__item message">
-                        Привет
-                    </div>
-                    <div className="messages__item message">
-                        Как дела?
-                    </div>
-                    <div className="messages__item message message--received">
-                        Я ок!
-                    </div>
-                    <div className="messages__item message message--received">
-                        Как там react?
-                    </div>
-                    <div className="messages__item message">
-                        Привет
-                    </div>
-                    <div className="messages__item message">
-                        Как дела?
-                    </div>
-                    <div className="messages__item message message--received">
-                        Я ок!
-                    </div>
-                    <div className="messages__item message message--received">
-                        Как там react?
-                    </div>
-                    <div className="messages__item message">
-                        Привет
-                    </div>
-                    <div className="messages__item message">
-                        Как дела?
-                    </div>
+                    <Message message="Привет!" />
+                    <Message message="Привет!" />
+
                     <div className="messages__item message message--received">
                         Я ок!
                     </div>
