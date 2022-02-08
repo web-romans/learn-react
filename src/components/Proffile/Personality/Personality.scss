@@ -1,0 +1,39 @@
+.personality {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 200px calc(100% - 220px);
+    grid-template-areas: "i a";
+    gap: 20px;
+    &__img-bl {
+        grid-area: i;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__about {
+        grid-area: a;
+    }
+
+    &__name {
+        font-size: 24px;
+        font-weight: 500;
+        //margin-bottom: 10px;
+    }
+
+    &__info {
+        font-size: 16px;
+        font-weight: 300;
+
+        &--min {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    }
+}

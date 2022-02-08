@@ -1,0 +1,15 @@
+.proffile {
+    display: flex;
+    flex-direction: column;
+    &__bg {
+        max-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    &__bg-img {
+        flex: 0 1 100%;
+    }
+}

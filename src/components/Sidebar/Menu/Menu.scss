@@ -1,0 +1,28 @@
+.menu {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+    }
+
+    &__item {
+        margin-bottom: 15px;
+        &:last-child {
+            margin-top: 50px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__link {
+        color: rgb(82, 82, 82);
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+        &:hover {
+            color: #000;
+        }
+
+        &.active {
+            color: #ef7700;
+        }
+    }
+}

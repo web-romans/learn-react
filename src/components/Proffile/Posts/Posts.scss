@@ -1,0 +1,13 @@
+.posts {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    &__form {
+        margin-bottom: 40px;
+    }
+
+    &__post {
+        margin-bottom: 40px;
+    }
+}
