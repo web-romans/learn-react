@@ -19,23 +19,19 @@ function Dialogs(props) {
         { id: '3', message: 'Как там реакт?' },
     ];
 
+    let dialogsElement = dialogsData.map(dialog => <Dialog id={dialog.id} name={dialog.name} />);
+    let messagesElement = messagesData.map(messages => <Message message={messages.message} />);
+
     return (
         <div className='dialogs'>
             <div className="dialogs__items">
-                <Dialog id={dialogsData[0].id} name={dialogsData[0].name} />
-                <Dialog id="2" name="Татьяна" />
-                <Dialog id="3" name="Анна" />
-                <Dialog id="4" name="Иван" />
+                {dialogsElement}
             </div>
 
             <div className="dialogs__messages messages">
 
                 <div className="messages__items">
-                    <Message message={messagesData[0].message} />
-                    <Message message={messagesData[1].message} />
-                    <Message message={messagesData[2].message} />
-                    <Message message={messagesData[3].message} />
-
+                    {messagesElement}
                     {/*<div className="messages__item message message--received">*/}
                 </div>
 

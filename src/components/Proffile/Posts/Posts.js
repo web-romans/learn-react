@@ -3,7 +3,7 @@ import Post from './Post/Post';
 import './Posts.scss';
 function Posts() {
 
-    let postData = [
+    let postsData = [
         {
             id: '0',
             img: 'https://dineuron.com/uploads/services/service_5cac7af9a951513.png',
@@ -31,6 +31,8 @@ function Posts() {
 
     ];
 
+    let postsElement = postsData.map(post => <Post img={post.img} text={post.text} likes={post.likes} />);
+
 
     return (
         <div className="proffile__posts posts">
@@ -38,17 +40,7 @@ function Posts() {
                 <textarea className="form__textarea" maxLength="250"></textarea>
                 <button className="form__send">Send</button>
             </form>
-
-            <Post
-                img={postData[0].img}
-                text={postData[0].text}
-                likes={postData[0].likes}
-            />
-            <Post
-                img={postData[1].img}
-                text={postData[1].text}
-                likes={postData[1].likes}
-            />
+            {postsElement}
         </div>
     )
 }
