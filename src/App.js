@@ -10,7 +10,8 @@ import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import Footer from './components/Footer/Footer'
 
-function App() {
+function App(props) {
+
   return (
     <BrowserRouter>
       <div className='page'>
@@ -19,8 +20,8 @@ function App() {
         <div className="page__content content">
 
           <Routes>
-            <Route path="/proffile" element={<Proffile />} />
-            <Route path="/dialogs" element={<Dialogs />} />
+            <Route path="/proffile" element={<Proffile postsData={props.postsData} />} />
+            <Route path="/dialogs" element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData} />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
 

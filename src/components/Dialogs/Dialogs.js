@@ -5,22 +5,10 @@ import './Dialogs.scss'
 
 function Dialogs(props) {
 
-    let dialogsData = [
-        { id: '1', name: 'Роман' },
-        { id: '2', name: 'Татьяна' },
-        { id: '3', name: 'Анна' },
-        { id: '4', name: 'Иван' },
-    ];
 
-    let messagesData = [
-        { id: '0', message: 'Привет!' },
-        { id: '1', message: 'Как дела?' },
-        { id: '2', message: 'Хорошо' },
-        { id: '3', message: 'Как там реакт?' },
-    ];
 
-    let dialogsElement = dialogsData.map(dialog => <Dialog id={dialog.id} name={dialog.name} />);
-    let messagesElement = messagesData.map(messages => <Message message={messages.message} />);
+    let dialogsElement = props.dialogsData.map(dialog => <Dialog id={dialog.id} name={dialog.name} />);
+    let messagesElement = props.messagesData.map(messages => <Message message={messages.message} />);
 
     return (
         <div className='dialogs'>
