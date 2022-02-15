@@ -7,8 +7,8 @@ function Dialogs(props) {
 
 
 
-    let dialogsElement = props.dialogsData.map(dialog => <Dialog id={dialog.id} name={dialog.name} />);
-    let messagesElement = props.messagesData.map(messages => <Message message={messages.message} />);
+    let dialogsElement = props.state.dialogsData.map(dialog => <Dialog id={dialog.id} name={dialog.name} />);
+    let messagesElement = props.state.messagesData.map(messages => <Message message={messages.message} />);
 
     return (
         <div className='dialogs'>

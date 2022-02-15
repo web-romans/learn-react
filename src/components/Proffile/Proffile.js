@@ -7,7 +7,7 @@ function Proffile(props) {
     return (
         <div className="content__proffile proffile">
             <Personality />
-            <Posts postsData={props.postsData} />
+            <Posts postsData={props.state.postsData} />
         </div>
     );
 }

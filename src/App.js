@@ -20,8 +20,16 @@ function App(props) {
         <div className="page__content content">
 
           <Routes>
-            <Route path="/proffile" element={<Proffile postsData={props.postsData} />} />
-            <Route path="/dialogs" element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData} />} />
+            <Route
+              path="/proffile"
+              element={<Proffile
+                state={props.appState.profilePage}
+              />} />
+            <Route
+              path="/dialogs"
+              element={<Dialogs
+                state={props.appState.messagesPage}
+              />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
 
