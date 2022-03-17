@@ -4,32 +4,23 @@ import './App.scss';
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Proffile from './components/Proffile/Proffile'
-import Dialogs from './components/Dialogs/Dialogs'
+import DialogsContainer from './components/Dialogs/DialogsContainer'
 import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import Footer from './components/Footer/Footer'
 
-function App(props) {
-
+function App() {
   return (
     <BrowserRouter>
       <div className='page'>
         <Header />
         <Sidebar />
         <div className="page__content content">
-
           <Routes>
-            <Route
-              path="/proffile"
-              element={<Proffile
-                state={props.appState.profilePage}
-              />} />
-            <Route
-              path="/dialogs"
-              element={<Dialogs
-                state={props.appState.messagesPage}
-              />} />
+            <Route path="/" element={<Proffile />} />
+            <Route path="/proffile" element={<Proffile />} />
+            <Route path="/dialogs" element={<DialogsContainer />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
 

@@ -1,13 +1,12 @@
 import Personality from './Personality/Personality';
-import Posts from './Posts/Posts';
+import PostsContainer from './Posts/PostsContainer';
 import './Proffile.scss'
 
 function Proffile(props) {
-
     return (
         <div className="content__proffile proffile">
             <Personality />
-            <Posts postsData={props.state.postsData} />
+            <PostsContainer />
         </div>
     );
 }
