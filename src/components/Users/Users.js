@@ -4,10 +4,12 @@ import * as axios from 'axios';
 import userPhoto from '../../assets/img/users.png';
 
 function Users(props) {
-    if (props.users.length === 0) {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-            props.setUsers(response.data.items);
-        });
+    let getUsers = () => {
+        if (props.users.length === 0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+                props.setUsers(response.data.items);
+            });
+        }
     }
 
     return (
@@ -60,6 +62,7 @@ function Users(props) {
                     )
                 }
             </ul>
+            <button onClick={getUsers} className="users__btn">Показать</button>
         </div>
     );
 }
