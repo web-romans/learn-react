@@ -1,14 +1,13 @@
 import './Users.scss';
 import { NavLink } from 'react-router-dom';
+import * as axios from 'axios';
+import userPhoto from '../../assets/img/users.png';
 
 function Users(props) {
     if (props.users.length === 0) {
-        props.setUsers([
-            { id: '0', followed: false, photoUrl: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', fullName: 'Роман', status: 'В данный момент в поисках работы младшим frontend разработчиком в перспективную компанию-команду', location: { city: 'Minsk', country: 'Belarus' } },
-            { id: '1', followed: true, photoUrl: 'https://simpledoc.ru/resume/examples/programmist/res/i/photo.jpg', fullName: 'Татьяна', status: 'Lorem ipsum dolor sit amet.', location: { city: 'Minsk', country: 'Belarus' } },
-            { id: '2', followed: false, photoUrl: 'https://simpledoc.ru/resume/examples/programmist/res/i/photo.jpg', fullName: 'Анна', status: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, veritatis.', location: { city: 'Minsk', country: 'Belarus' } },
-            { id: '3', followed: true, photoUrl: 'https://simpledoc.ru/resume/examples/programmist/res/i/photo.jpg', fullName: 'Иван', status: 'Lorem, ipsum dolor.', location: { city: 'Minsk', country: 'Belarus' } }
-        ]);
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            props.setUsers(response.data.items);
+        });
     }
 
     return (
@@ -17,11 +16,11 @@ function Users(props) {
                 {
                     props.users.map((u) => <li key={u.id} className="users__item user-block">
                         <NavLink to="#" className="user-block__img">
-                            <img src={u.photoUrl} alt={u.fullName} />
+                            <img src={u.photos.small != null ? u.photos.small : userPhoto} alt={u.name} />
                         </NavLink>
                         <div className="user-block__info">
-                            <NavLink to="#" className="user-block__name">{u.fullName}</NavLink>
-                            <NavLink to="#" className="user-block__country">{u.location.country}, {u.location.city}</NavLink>
+                            <NavLink to="#" className="user-block__name">{u.name}</NavLink>
+                            <NavLink to="#" className="user-block__country">Минск, Беларусь</NavLink>
                             <div className="user-block__status">
                                 {u.status}
                             </div>
