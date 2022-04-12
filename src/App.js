@@ -7,6 +7,7 @@ import Proffile from './components/Proffile/Proffile'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
 import News from './components/News/News'
 import Music from './components/Music/Music'
+import UsersContainer from './components/Users/UsersContainer'
 import Settings from './components/Settings/Settings'
 import Footer from './components/Footer/Footer'
 
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Proffile />} />
             <Route path="/proffile" element={<Proffile />} />
+            <Route path="/users" element={<UsersContainer />} />
             <Route path="/dialogs" element={<DialogsContainer />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />

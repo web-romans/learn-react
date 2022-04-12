@@ -8,6 +8,10 @@ function Menu() {
                 <li className="menu__item">
                     <NavLink className="menu__link" to="/proffile">Proffile</NavLink>
                 </li>
+
+                <li className="menu__item">
+                    <NavLink className="menu__link" to="/users">Users</NavLink>
+                </li>
                 <li className="menu__item">
                     <NavLink className="menu__link" to="/dialogs">Message</NavLink>
                 </li>
@@ -17,6 +21,8 @@ function Menu() {
                 <li className="menu__item">
                     <NavLink className="menu__link" to="/music">Music</NavLink>
                 </li>
+
+
                 <li className="menu__item">
                     <NavLink className="menu__link" to="/settings">Settings</NavLink>
                 </li>
