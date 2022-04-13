@@ -1,9 +1,18 @@
 .users {
+    max-width: 100%;
     padding: 30px;
     &__list {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 40px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items:  flex-start;
+    }
+
+    &__item {
+        flex: 0 1 30%;
+        margin-bottom: 50px;
     }
 }
 
@@ -61,6 +70,33 @@
         cursor: pointer;
         &:not(&:first-of-type) {
             margin-left: 10px;
+        }
+    }
+}
+
+.pagination {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__item {
+        margin: 0 5px;
+        list-style-type: none;
+        border: 1px #000 solid;
+        border-radius: 5px;
+    }
+    &__btn {
+        background-color: transparent;
+        border: none;
+        display: inline-block;
+        padding: 5px 15px;
+        font-size: 14px;
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        &.selected {
+            background-color: #000;
+            color: #fff;
         }
     }
 }

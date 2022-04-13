@@ -5,12 +5,24 @@ import './Users.scss';
 import userPhoto from '../../assets/img/users.png';
 
 class Users extends React.Component {
-    componentDidMount() {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.items);
         });
     }
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+            this.props.setUsers(response.data.items);
+            this.props.setTotalUsersCount(response.data.totalCount);
+        });
+    }
     render() {
+        let pagesCount = Math.ceil(this.props.totalUserCount / this.props.pageSize);
+        let pages = [];
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
         return (
             <div className="users">
                 <ul className="users__list">
@@ -51,6 +63,30 @@ class Users extends React.Component {
                             </div>
                         </li>
                         )
+                    }
+                </ul>
+
+                <ul className="pagination">
+                    {
+                        pages.map((p) => {
+                            if (p === 1) {
+                                return <li className="pagination__item">
+                                    <button onClick={(e) => this.onPageChanged(p)} className={(this.props.currentPage === p) ? " pagination__btn selected" : "pagination__btn"}>{p}</button>
+                                </li>
+                            }
+                            if (p >= (this.props.currentPage - 2) && p <= (this.props.currentPage + 2)) {
+                                return <li className="pagination__item">
+                                    <button onClick={(e) => this.onPageChanged(p)} className={(this.props.currentPage === p) ? " pagination__btn selected" : "pagination__btn"}>{p}</button>
+                                </li>
+                            }
+
+                            if (p === pagesCount) {
+                                return <li className="pagination__item">
+                                    <button onClick={(e) => this.onPageChanged(p)} className={(this.props.currentPage === p) ? " pagination__btn selected" : "pagination__btn"}>{p}</button>
+                                </li>
+                            }
+
+                        })
                     }
                 </ul>
             </div>
