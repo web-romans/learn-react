@@ -17,6 +17,8 @@
 }
 
 .user-block {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: 3fr 9fr;
     &__img {

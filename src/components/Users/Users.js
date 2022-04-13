@@ -54,6 +54,7 @@ function Users(props) {
 
             <ul className="pagination">
                 {
+                    // eslint-disable-next-line array-callback-return
                     pages.map((p) => {
                         if (p === 1) {
                             return <li className="pagination__item">

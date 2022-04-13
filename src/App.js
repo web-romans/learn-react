@@ -17,18 +17,21 @@ function App() {
     <BrowserRouter>
       <div className='page'>
         <Header />
-        <Sidebar />
-        <div className="page__content content">
-          <Routes>
-            <Route path="/" element={<Proffile />} />
-            <Route path="/proffile" element={<Proffile />} />
-            <Route path="/users" element={<UsersContainer />} />
-            <Route path="/dialogs" element={<DialogsContainer />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/music" element={<Music />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </div>
+        <main className="main">
+          <Sidebar />
+          <div className="page__content content">
+            <Routes>
+              <Route path="/" element={<Proffile />} />
+              <Route path="/proffile" element={<Proffile />} />
+              <Route path="/users" element={<UsersContainer />} />
+              <Route path="/dialogs" element={<DialogsContainer />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/music" element={<Music />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </div>
+        </main>
+
         <Footer />
       </div>
     </BrowserRouter>
