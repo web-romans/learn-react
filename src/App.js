@@ -1,6 +1,7 @@
 
 import { Routes, BrowserRouter, Route } from "react-router-dom"
 import './App.scss';
+
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Proffile from './components/Proffile/Proffile'
@@ -25,10 +26,8 @@ function App() {
             <Route path="/dialogs" element={<DialogsContainer />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
-
             <Route path="/settings" element={<Settings />} />
           </Routes>
-
         </div>
         <Footer />
       </div>
