@@ -2,7 +2,7 @@
 import { Routes, BrowserRouter, Route } from "react-router-dom"
 import './App.scss';
 
-import Header from './components/Header/Header'
+import HeaderContainer from './components/Header/HeaderContainer'
 import Sidebar from './components/Sidebar/Sidebar'
 import ProfileContainer from './components/Proffile/ProfileContainer'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className='page'>
-        <Header />
+        <HeaderContainer />
         <main className="main">
           <Sidebar />
           <div className="page__content content">
