@@ -5,7 +5,7 @@ import './Proffile.scss'
 function Proffile(props) {
     return (
         <div className="content__proffile proffile">
-            <Personality />
+            <Personality profile={props.profile} />
             <PostsContainer />
         </div>
     );

@@ -3,7 +3,14 @@ import * as axios from 'axios';
 import Users from './Users'
 import Preloader from './../common/Preloader/Preloader';
 import { connect } from 'react-redux';
-import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersCount, toggleIsFetchingt } from '../../redux/users-reducer';
+import {
+    follow,
+    setUsers,
+    unfollow,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetchingt
+} from '../../redux/users-reducer';
 
 const apiUrl = 'https://social-network.samuraijs.com/api/1.0/';
 

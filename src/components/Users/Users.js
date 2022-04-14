@@ -14,11 +14,11 @@ function Users(props) {
             <ul className="users__list">
                 {
                     props.users.map((u) => <li key={u.id} className="users__item user-block">
-                        <NavLink to="#" className="user-block__img">
+                        <NavLink to={'/profile/' + u.id} className="user-block__img">
                             <img src={u.photos.small != null ? u.photos.small : userPhoto} alt={u.name} />
                         </NavLink>
                         <div className="user-block__info">
-                            <NavLink to="#" className="user-block__name">{u.name}</NavLink>
+                            <NavLink to={'/profile/' + u.id} className="user-block__name">{u.name}</NavLink>
                             <NavLink to="#" className="user-block__country">Минск, Беларусь</NavLink>
 
                             <div className="user-block__status">  {u.status} </div>
