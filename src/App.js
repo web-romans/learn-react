@@ -4,7 +4,7 @@ import './App.scss';
 
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
-import ProffileContainer from './components/Proffile/ProffileContainer'
+import ProfileContainer from './components/Proffile/ProfileContainer'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
 import News from './components/News/News'
 import Music from './components/Music/Music'
@@ -21,8 +21,9 @@ function App() {
           <Sidebar />
           <div className="page__content content">
             <Routes>
-              <Route path="/" element={<ProffileContainer />} />
-              <Route path="/proffile" element={<ProffileContainer />} />
+              <Route path="/" element={<ProfileContainer />} />
+              <Route path="/profile" element={<ProfileContainer />} />
+              <Route path="/profile/:profileId" element={<ProfileContainer />} />
               <Route path="/users" element={<UsersContainer />} />
               <Route path="/dialogs" element={<DialogsContainer />} />
               <Route path="/news" element={<News />} />

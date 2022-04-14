@@ -6,7 +6,7 @@ function Menu() {
         <nav className="sibebar__menu menu">
             <ul className="menu__list">
                 <li className="menu__item">
-                    <NavLink className="menu__link" to="/proffile">Proffile</NavLink>
+                    <NavLink className="menu__link" to="/profile">Profile</NavLink>
                 </li>
 
                 <li className="menu__item">

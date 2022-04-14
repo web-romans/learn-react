@@ -1,8 +1,8 @@
 import Personality from './Personality/Personality';
 import PostsContainer from './Posts/PostsContainer';
-import './Proffile.scss'
+import './Profile.scss'
 
-function Proffile(props) {
+function Profile(props) {
     return (
         <div className="content__proffile proffile">
             <Personality profile={props.profile} />
@@ -11,4 +11,4 @@ function Proffile(props) {
     );
 }
 
-export default Proffile;
+export default Profile;
