@@ -15,12 +15,13 @@ import {
 const apiUrl = 'https://social-network.samuraijs.com/api/1.0/';
 
 class UsersContainer extends React.Component {
-
     onPageChanged = (pageNumber) => {
         let getString = `${apiUrl}users?page=${pageNumber}&count=${this.props.pageSize}`;
         this.props.toggleIsFetchingt(true);
         this.props.setCurrentPage(pageNumber);
-        axios.get(getString).then(response => {
+        axios.get(getString, {
+            withCredentials: true
+        }).then(response => {
             this.props.setUsers(response.data.items);
             this.props.toggleIsFetchingt(false);
         });
@@ -28,7 +29,9 @@ class UsersContainer extends React.Component {
     componentDidMount() {
         let getString = `${apiUrl}users?page=${this.props.currentPage}&count=${this.props.pageSize}`;
         this.props.toggleIsFetchingt(true);
-        axios.get(getString).then(response => {
+        axios.get(getString, {
+            withCredentials: true
+        }).then(response => {
             this.props.setUsers(response.data.items);
             this.props.setTotalUsersCount(response.data.totalCount);
             this.props.toggleIsFetchingt(false);
