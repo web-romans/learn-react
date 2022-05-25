@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import * as axios from 'axios';
 import './Users.scss';
 import userPhoto from '../../assets/img/users.png';
+import { usersAPI } from '../../api/api';
 
 function Users(props) {
     let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
@@ -9,8 +9,6 @@ function Users(props) {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-    const apiUrl = 'https://social-network.samuraijs.com/api/1.0/';
-
 
     return (
         <div className="users">
@@ -30,14 +28,8 @@ function Users(props) {
                                     ?
                                     <button onClick={() => {
 
-                                        let getString = `${apiUrl}follow/${u.id}`;
-                                        axios.delete(getString, {
-                                            withCredentials: true,
-                                            headers: {
-                                                "API-KEY": "e7ed6daa-91fb-4af8-b953-1f33e98ea0ae"
-                                            }
-                                        }).then(response => {
-                                            if (response.data.resultCode == 0) {
+                                        usersAPI.unfollowUser(u.id).then(resultCode => {
+                                            if (resultCode === 0) {
                                                 props.unfollow(u.id)
                                             }
                                         });
@@ -50,19 +42,11 @@ function Users(props) {
                                     </button>
                                     :
                                     <button onClick={() => {
-
-                                        let getString = `${apiUrl}follow/${u.id}`;
-                                        axios.post(getString, {}, {
-                                            withCredentials: true,
-                                            headers: {
-                                                "API-KEY": "e7ed6daa-91fb-4af8-b953-1f33e98ea0ae"
-                                            }
-                                        }).then(response => {
-                                            if (response.data.resultCode == 0) {
+                                        usersAPI.followUser(u.id).then(resultCode => {
+                                            if (resultCode === 0) {
                                                 props.follow(u.id)
                                             }
                                         });
-
                                     }} className="user-block__btn user-block__btn--follow">
                                         <svg width="20" height="20" viewBox="0 0 45.902 45.902">
                                             <path d="M43.162,26.681c-1.564-1.578-3.631-2.539-5.825-2.742c1.894-1.704,3.089-4.164,3.089-6.912 c0-5.141-4.166-9.307-9.308-9.307c-4.911,0-8.932,3.804-9.281,8.625c4.369,1.89,7.435,6.244,7.435,11.299 c0,1.846-0.42,3.65-1.201,5.287c1.125,0.588,2.162,1.348,3.066,2.26c2.318,2.334,3.635,5.561,3.61,8.851l-0.002,0.067 l-0.002,0.057l-0.082,1.557h11.149l0.092-12.33C45.921,30.878,44.936,28.466,43.162,26.681z" />
