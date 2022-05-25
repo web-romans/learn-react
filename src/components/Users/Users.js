@@ -26,12 +26,13 @@ function Users(props) {
                             {
                                 (u.followed)
                                     ?
-                                    <button onClick={() => {
-
+                                    <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                        props.togglefollowingInProgress(true, u.id);
                                         usersAPI.unfollowUser(u.id).then(resultCode => {
                                             if (resultCode === 0) {
                                                 props.unfollow(u.id)
                                             }
+                                            props.togglefollowingInProgress(false, u.id);
                                         });
 
                                     }} className="user-block__btn user-block__btn--unfollow">
@@ -41,11 +42,13 @@ function Users(props) {
                                         </svg>
                                     </button>
                                     :
-                                    <button onClick={() => {
+                                    <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                        props.togglefollowingInProgress(true, u.id);
                                         usersAPI.followUser(u.id).then(resultCode => {
                                             if (resultCode === 0) {
                                                 props.follow(u.id)
                                             }
+                                            props.togglefollowingInProgress(false, u.id);
                                         });
                                     }} className="user-block__btn user-block__btn--follow">
                                         <svg width="20" height="20" viewBox="0 0 45.902 45.902">
