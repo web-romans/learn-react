@@ -1,5 +1,7 @@
 import Preloader from '../../common/Preloader/Preloader';
 import './Personality.scss'
+import Status from '../Status/Status';
+import bg from '../../../assets/img/bg.webp'
 
 function Personality(props) {
     if (!props.profile) {
@@ -10,7 +12,7 @@ function Personality(props) {
                 <div className="personality__bg">
                     <img
                         className="personality__bg-img"
-                        src="https://ak.picdn.net/shutterstock/videos/11748878/thumb/4.jpg"
+                        src={bg}
                         alt="Profile background"
                     />
                 </div>
@@ -23,7 +25,7 @@ function Personality(props) {
                 <div className="personality__about">
                     <div className="personality__name">{props.profile.fullName}</div>
                     <div className="personality__info personality__info--min">Belarus, 29 years</div>
-                    <div className="personality__info">{props.profile.aboutMe}</div>
+                    <Status aboutMe={props.profile.aboutMe} />
                 </div>
             </div>
         );

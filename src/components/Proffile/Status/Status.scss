@@ -1,0 +1,11 @@
+.status {
+    &__info {
+        font-size: 16px;
+        font-weight: 300;
+
+        &--min {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    }
+}
