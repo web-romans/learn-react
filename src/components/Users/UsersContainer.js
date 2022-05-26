@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import Users from './Users'
 import Preloader from './../common/Preloader/Preloader';
 import { connect } from 'react-redux';
@@ -10,18 +10,14 @@ import {
     getUsers
 } from '../../redux/users-reducer';
 
-
 class UsersContainer extends React.Component {
-
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.getUsers(pageNumber, this.props.pageSize);
     }
-
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
-
     render() {
         return <>
             {this.props.isFetching ? <Preloader /> : null}
@@ -50,9 +46,9 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {
+export default withAuthRedirect(connect(mapStateToProps, {
     followSuccess,
     unfollowSuccess,
     setCurrentPage,
     getUsers
-})(UsersContainer);
+})(UsersContainer));
