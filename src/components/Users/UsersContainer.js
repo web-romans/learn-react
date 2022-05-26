@@ -9,6 +9,7 @@ import {
     setCurrentPage,
     getUsers
 } from '../../redux/users-reducer';
+import { compose } from 'redux';
 
 class UsersContainer extends React.Component {
     onPageChanged = (pageNumber) => {
@@ -46,9 +47,12 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default withAuthRedirect(connect(mapStateToProps, {
-    followSuccess,
-    unfollowSuccess,
-    setCurrentPage,
-    getUsers
-})(UsersContainer));
+export default compose(
+    connect(mapStateToProps, {
+        followSuccess,
+        unfollowSuccess,
+        setCurrentPage,
+        getUsers
+    }),
+    withAuthRedirect
+)(UsersContainer);
