@@ -3,7 +3,8 @@ import './Status.scss'
 
 export default class Status extends React.Component {
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
 
     activateEditMode = () => {
@@ -15,7 +16,22 @@ export default class Status extends React.Component {
     deactivateEditMode = () => {
         this.setState({
             editMode: false
-        })
+        });
+        this.props.updateUserStatus(this.state.status);
+    }
+
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value
+        });
+    }
+
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            });
+        }
     }
 
     render() {
@@ -23,13 +39,11 @@ export default class Status extends React.Component {
             <div className="status">
                 {
                     !this.state.editMode
-                        ? <div onDoubleClick={this.activateEditMode.bind(this)} className="status__info">{this.props.aboutMe}</div>
+                        ? <div onDoubleClick={this.activateEditMode} className="status__info">{!this.props.status ? "-------" : this.props.status}</div>
                         : <form className="status__form">
-                            <input autoFocus onBlur={this.deactivateEditMode.bind(this)} type="text" className="status__text" defaultValue={this.props.aboutMe} />
+                            <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} type="text" className="status__text" defaultValue={this.state.status} />
                         </form>
                 }
-
-
             </div>
         )
     }

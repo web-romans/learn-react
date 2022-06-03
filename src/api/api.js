@@ -25,12 +25,24 @@ export const usersAPI = {
         });
     },
     getProfile(profileId = 1) {
-        return instance.get(`profile/${profileId}`);
+        return profileAPI.getProfile(profileId);
     }
 }
 
 export const authAPI = {
     authMe() {
         return instance.get('auth/me');
+    }
+}
+
+export const profileAPI = {
+    getProfile(profileId = 1) {
+        return instance.get(`profile/${profileId}`);
+    },
+    getStatus(profileId = 1) {
+        return instance.get(`profile/status/${profileId}`);
+    },
+    updateStatus(status) {
+        return instance.put(`profile/status`, { status });
     }
 }

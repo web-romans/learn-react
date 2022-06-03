@@ -24,8 +24,8 @@ function Personality(props) {
                 </div>
                 <div className="personality__about">
                     <div className="personality__name">{props.profile.fullName}</div>
-                    <div className="personality__info personality__info--min">Belarus, 29 years</div>
-                    <Status aboutMe={props.profile.aboutMe} />
+                    <div className="personality__info personality__info--min">Belarus, Minsk</div>
+                    <Status aboutMe={props.profile.aboutMe} status={props.status} updateUserStatus={props.updateUserStatus} />
                 </div>
             </div>
         );

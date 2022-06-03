@@ -104,6 +104,7 @@ export const getUsers = (currentPage, pageSize) => (dispatch) => {
         dispatch(toggleIsFetchingt(false));
     });
 }
+
 export const follow = (userId) => (dispatch) => {
 
     dispatch(togglefollowingInProgress(true, userId));
@@ -114,6 +115,7 @@ export const follow = (userId) => (dispatch) => {
         dispatch(togglefollowingInProgress(false, userId));
     });
 }
+
 export const unfollow = (userId) => (dispatch) => {
 
     dispatch(togglefollowingInProgress(true, userId));
@@ -124,6 +126,5 @@ export const unfollow = (userId) => (dispatch) => {
         dispatch(togglefollowingInProgress(false, userId));
     });
 }
-
 
 export default usersReducer; 
