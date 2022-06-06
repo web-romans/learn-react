@@ -1,7 +1,6 @@
 import { usersAPI, profileAPI } from '../api/api';
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -33,7 +32,6 @@ let initialState = {
         },
 
     ],
-    newPostText: 'newPostText',
     profile: null,
     status: ""
 }
@@ -44,18 +42,12 @@ const profileReducer = (state = initialState, action) => {
             let newPost = {
                 id: state.postsData.length,
                 img: 'https://dineuron.com/uploads/services/service_5cac7af9a951513.png',
-                text: state.newPostText,
+                text: action.post,
                 likes: 0
             };
             return {
                 ...state,
-                newPostText: '',
                 postsData: [...state.postsData, newPost]
-            }
-        }
-        case UPDATE_NEW_POST_TEXT: {
-            return {
-                ...state, newPostText: action.newText
             }
         }
         case SET_USER_PROFILE: {
@@ -71,14 +63,11 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({
-    type: ADD_POST
+export const addPostActionCreator = (post) => ({
+    type: ADD_POST,
+    post: post
 });
 
-export const updatePostActionCreator = (text) => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text
-});
 
 export const setUserProfileActionCreator = (profile) => ({
     type: SET_USER_PROFILE,
